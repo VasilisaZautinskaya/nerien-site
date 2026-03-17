@@ -80,3 +80,29 @@ if (img) {
     if (ph) ph.style.display = 'none';
   }
 }
+
+// Мобильное меню
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileOverlay = document.getElementById('mobile-overlay');
+
+if (burger) {
+  burger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('open');
+    burger.classList.toggle('open', !isOpen);
+    mobileMenu.classList.toggle('open', !isOpen);
+    mobileOverlay.classList.toggle('open', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+  mobileOverlay.addEventListener('click', () => {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  // Подсвечиваем активную страницу в мобильном меню
+  const current = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    if (a.getAttribute('href') === current) a.classList.add('active');
+  });
+}

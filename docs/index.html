@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<!-- Мобильное меню -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Главная</a>
+  <a href="schedule.html">Расписание</a>
+  <a href="games.html">Игры</a>
+  <a href="lore.html">???</a>
+  <a href="support.html">Поддержать</a>
+  <div class="mobile-live"><span class="live-dot"></span>Offline</div>
+</div>
+
 <div class="bg-layer">
   <div class="bg-grid"></div>
   <div class="bg-orb1"></div>
@@ -27,6 +38,7 @@
   <div class="nav-right">
     <div class="nav-live"><span class="live-dot"></span>Offline</div>
     <!-- Переключатель темы -->
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
     <button class="theme-toggle" id="theme-toggle" title="Сменить тему">
       <div class="toggle-icons"><span>🌙</span><span>☀️</span></div>
     </button>
@@ -36,14 +48,14 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Витубер · Дроу</div>
-    <div class="hero-name">Н<span class="accent">эриэн</span></div>
+    <div class="hero-name">Нэ<span class="accent">риэн</span></div>
     <div class="hero-sub">
       Существо из тени, которое почему-то решило стримить.<br>
       Стримы, контент, немного <em>хаоса</em> — добро пожаловать.
     </div>
     <div class="hero-actions">
       <!-- 👇 ЗАМЕНИ ссылку на свой Twitch -->
-      <button class="btn-p" onclick="window.open('https://twitch.tv/fft_lumi')">Смотреть на Twitch</button>
+      <button class="btn-p" onclick="window.open('https://twitch.tv/ВАШ_НИК')">Смотреть на Twitch</button>
       <button class="btn-s" onclick="document.getElementById('platforms').scrollIntoView({behavior:'smooth'})">Все платформы</button>
     </div>
   </div>
@@ -113,17 +125,17 @@
   <div class="section-label">Найти меня</div>
   <div class="plat-grid">
     <!-- 👇 ЗАМЕНИ href на свои ссылки -->
-    <a class="plat-card twitch" href="https://twitch.tv/fft_lumi" target="_blank">
+    <a class="plat-card twitch" href="https://twitch.tv/ВАШ_НИК" target="_blank">
       <div class="plat-ico ico-twitch">▶</div>
-      <div><div class="plat-name">Twitch</div><div class="plat-handle">twitch.tv/fft_lumi</div></div>
+      <div><div class="plat-name">Twitch</div><div class="plat-handle">twitch.tv/ВАШ_НИК</div></div>
     </a>
-    <a class="plat-card tiktok" href="https://tiktok.com/@essenwald27" target="_blank">
+    <a class="plat-card tiktok" href="https://tiktok.com/@ВАШ_НИК" target="_blank">
       <div class="plat-ico ico-tiktok">♪</div>
-      <div><div class="plat-name">TikTok</div><div class="plat-handle">Нэриэн</div></div>
+      <div><div class="plat-name">TikTok</div><div class="plat-handle">@ВАШ_НИК</div></div>
     </a>
-    <a class="plat-card youtube" href="https://youtube.com/@essenwaldwaethdeltar" target="_blank">
+    <a class="plat-card youtube" href="https://youtube.com/@ВАШ_НИК" target="_blank">
       <div class="plat-ico ico-yt">▷</div>
-      <div><div class="plat-name">YouTube</div><div class="plat-handle">Нэриэн</div></div>
+      <div><div class="plat-name">YouTube</div><div class="plat-handle">@ВАШ_НИК</div></div>
     </a>
   </div>
 </section>
