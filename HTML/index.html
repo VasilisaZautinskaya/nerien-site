@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нэриэн — Drow Vtuber</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+
+<div class="bg-layer">
+  <div class="bg-grid"></div>
+  <div class="bg-orb1"></div>
+  <div class="bg-orb2"></div>
+</div>
+
+<nav>
+  <div class="logo">Нэриэн <span>// Nerien</span></div>
+  <div class="nav-links">
+    <a href="#about">О персонаже</a>
+    <a href="#platforms">Платформы</a>
+    <a href="schedule.html">Расписание</a>
+    <a href="games.html">Игры</a>
+    <a href="lore.html" class="active">???</a>
+    <a href="support.html">Поддержать</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-live"><span class="live-dot"></span>Offline</div>
+    <!-- Переключатель темы -->
+    <button class="theme-toggle" id="theme-toggle" title="Сменить тему">
+      <div class="toggle-icons"><span>🌙</span><span>☀️</span></div>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Витубер · Дроу</div>
+    <div class="hero-name">Н<span class="accent">эриэн</span></div>
+    <div class="hero-sub">
+      Существо из тени, которое почему-то решило стримить.<br>
+      Стримы, контент, немного <em>хаоса</em> — добро пожаловать.
+    </div>
+    <div class="hero-actions">
+      <!-- 👇 ЗАМЕНИ ссылку на свой Twitch -->
+      <button class="btn-p" onclick="window.open('https://twitch.tv/fft_lumi')">Смотреть на Twitch</button>
+      <button class="btn-s" onclick="document.getElementById('platforms').scrollIntoView({behavior:'smooth'})">Все платформы</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="char-photo">
+      <!-- 👇 ЗАМЕНИ src на путь к своей картинке и убери style="display:none" -->
+      <img src="" alt="Нэриэн" id="char-img" style="display:none">
+      <div class="photo-placeholder" id="ph">
+        <div class="ph-icon">☽</div>
+        <div class="ph-text">Здесь будет<br>твоя моделька</div>
+        <div class="ph-hint">
+          Найди &lt;img id="char-img"&gt;<br>
+          замени src на путь к файлу<br>
+          и убери style="display:none"
+        </div>
+      </div>
+      <div class="char-glow"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="section-label">О персонаже</div>
+    <div class="about-title">Кто такой Нэриэн?</div>
+    <div class="about-body">
+      Дроу. Остроухий. Два разных глаза — <strong>синий и жёлтый</strong>, и да, это не баг.<br><br>
+      Стримит игры, иногда рисует, иногда просто существует в кадре.
+      Громко не обещает, тихо удивляет.<br><br>
+      Часть тени, немного луны, чуточку звёзд.
+    </div>
+    <div class="traits">
+      <div class="trait"><div class="trait-icon">👁</div><div class="trait-name">Внешность</div><div class="trait-val">Дроу, 3D</div></div>
+      <div class="trait"><div class="trait-icon">✦</div><div class="trait-name">Особенность</div><div class="trait-val">Гетерохромия</div></div>
+      <div class="trait"><div class="trait-icon">☽</div><div class="trait-name">Символ</div><div class="trait-val">Луна и звёзды</div></div>
+      <div class="trait"><div class="trait-icon">🎮</div><div class="trait-name">Контент</div><div class="trait-val">Игры / Misc</div></div>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="section-label">Характеристики</div>
+    <div class="stats">
+      <div class="stat-row">
+        <div class="stat-label-row"><span>Уют на стриме</span><span>85%</span></div>
+        <div class="stat-bar"><div class="stat-fill" style="background: var(--stat1)" data-w="85"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-label-row"><span>Загадочность</span><span>90%</span></div>
+        <div class="stat-bar"><div class="stat-fill" style="background: var(--stat2)" data-w="90"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-label-row"><span>Хаос-энергия</span><span>70%</span></div>
+        <div class="stat-bar"><div class="stat-fill" style="background: var(--stat3)" data-w="70"></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-label-row"><span>Количество лора</span><span>??%</span></div>
+        <div class="stat-bar"><div class="stat-fill" style="background: var(--stat4)" data-w="20"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="platforms" id="platforms">
+  <div class="section-label">Найти меня</div>
+  <div class="plat-grid">
+    <!-- 👇 ЗАМЕНИ href на свои ссылки -->
+    <a class="plat-card twitch" href="https://twitch.tv/fft_lumi" target="_blank">
+      <div class="plat-ico ico-twitch">▶</div>
+      <div><div class="plat-name">Twitch</div><div class="plat-handle">twitch.tv/fft_lumi</div></div>
+    </a>
+    <a class="plat-card tiktok" href="https://tiktok.com/@essenwald27" target="_blank">
+      <div class="plat-ico ico-tiktok">♪</div>
+      <div><div class="plat-name">TikTok</div><div class="plat-handle">Нэриэн</div></div>
+    </a>
+    <a class="plat-card youtube" href="https://youtube.com/@essenwaldwaethdeltar" target="_blank">
+      <div class="plat-ico ico-yt">▷</div>
+      <div><div class="plat-name">YouTube</div><div class="plat-handle">Нэриэн</div></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-copy">© 2026 Nerien — Все права защищены</div>
+  <div class="f-sig">✦ DROW VTUBER ✦</div>
+</footer>
+
+<script src="../JS/script.js"></script>
+</body>
+</html>

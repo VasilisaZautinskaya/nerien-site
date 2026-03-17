@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>??? — Нэриэн</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/lore.css">
+</head>
+<body>
+
+<div class="bg-layer">
+  <div class="bg-grid"></div>
+  <div class="bg-orb1"></div>
+  <div class="bg-orb2"></div>
+</div>
+
+<nav>
+  <div class="logo"><a href="index.html">Нэриэн <span>// Nerien</span></a></div>
+  <div class="nav-links">
+    <a href="index.html">Главная</a>
+    <a href="schedule.html">Расписание</a>
+    <a href="games.html">Игры</a>
+    <a href="lore.html" class="active">???</a>
+    <a href="support.html">Поддержать</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-live"><span class="live-dot"></span>Offline</div>
+    <button class="theme-toggle" id="theme-toggle" title="Сменить тему">
+      <div class="toggle-icons"><span>🌙</span><span>☀️</span></div>
+    </button>
+  </div>
+</nav>
+
+<main class="page-main">
+
+  <div class="dossier">
+
+    <div class="dossier-header">
+      <div class="dossier-stamp">ДОСЬЕ</div>
+      <div class="dossier-id">FILE // NRN-001</div>
+      <div class="dossier-clearance">УРОВЕНЬ ДОСТУПА: <span class="clearance-val">ОГРАНИЧЕН</span></div>
+    </div>
+
+    <div class="dossier-body">
+
+      <!-- Фото + базовые данные -->
+      <div class="dossier-top">
+        <div class="dossier-photo">
+          <!-- 👇 ЗАМЕНИ src на путь к своей картинке и убери style="display:none" -->
+          <img src="" alt="Нэриэн" id="char-img" style="display:none">
+          <div class="photo-placeholder" id="ph">
+            <div class="ph-icon">☽</div>
+            <div class="ph-text">фото<br>субъекта</div>
+          </div>
+          <div class="photo-label">СУБЪЕКТ // NRN</div>
+        </div>
+
+        <div class="dossier-basic">
+          <div class="field-row">
+            <div class="field-label">Имя</div>
+            <div class="field-value">Нэриэн</div>
+          </div>
+          <div class="field-row">
+            <div class="field-label">Раса</div>
+            <div class="field-value">Дроу</div>
+          </div>
+          <div class="field-row">
+            <div class="field-label">Происхождение</div>
+            <div class="field-value redacted">████████████</div>
+          </div>
+          <div class="field-row">
+            <div class="field-label">Возраст</div>
+            <div class="field-value redacted">███</div>
+          </div>
+          <div class="field-row">
+            <div class="field-label">Бывшее звание</div>
+            <div class="field-value">Тёмный маг <span class="partial-redact">// ████████</span></div>
+          </div>
+          <div class="field-row">
+            <div class="field-label">Статус</div>
+            <div class="field-value status-active">◉ Активен</div>
+          </div>
+          <div class="field-row">
+            <div class="field-label">Угроза</div>
+            <div class="field-value threat">
+              <span class="threat-pip filled"></span>
+              <span class="threat-pip filled"></span>
+              <span class="threat-pip filled"></span>
+              <span class="threat-pip"></span>
+              <span class="threat-pip"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dossier-divider"></div>
+
+      <!-- Внешность -->
+      <div class="dossier-section">
+        <div class="section-title">// Внешность</div>
+        <div class="traits-grid">
+          <div class="trait-item open">
+            <div class="trait-key">Волосы</div>
+            <div class="trait-val">Белые, короткие</div>
+          </div>
+          <div class="trait-item open">
+            <div class="trait-key">Кожа</div>
+            <div class="trait-val">Тёмно-серая</div>
+          </div>
+          <div class="trait-item open">
+            <div class="trait-key">Глаза</div>
+            <div class="trait-val">Синий + жёлто-зелёный <span class="anomaly">⚠ аномалия</span></div>
+          </div>
+          <div class="trait-item open">
+            <div class="trait-key">Уши</div>
+            <div class="trait-val">Заострённые, тёмные</div>
+          </div>
+          <div class="trait-item open">
+            <div class="trait-key">Одежда</div>
+            <div class="trait-val">Чёрное худи, лунный символ</div>
+          </div>
+          <div class="trait-item redacted-item">
+            <div class="trait-key">Метки</div>
+            <div class="trait-val redacted">████████████████</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dossier-divider"></div>
+
+      <!-- Способности -->
+      <div class="dossier-section">
+        <div class="section-title">// Способности</div>
+        <div class="abilities-list">
+          <div class="ability open">
+            <div class="ability-name">Тёмная магия</div>
+            <div class="ability-bar">
+              <div class="ability-fill" style="--w:80%"></div>
+            </div>
+            <div class="ability-note">подтверждено</div>
+          </div>
+          <div class="ability open">
+            <div class="ability-name">Боевые навыки</div>
+            <div class="ability-bar">
+              <div class="ability-fill" style="--w:70%"></div>
+            </div>
+            <div class="ability-note">подтверждено</div>
+          </div>
+          <div class="ability locked">
+            <div class="ability-name redacted">████████████</div>
+            <div class="ability-bar">
+              <div class="ability-fill locked-fill"></div>
+            </div>
+            <div class="ability-note">засекречено</div>
+          </div>
+          <div class="ability locked">
+            <div class="ability-name redacted">██████</div>
+            <div class="ability-bar">
+              <div class="ability-fill locked-fill"></div>
+            </div>
+            <div class="ability-note">засекречено</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dossier-divider"></div>
+
+      <!-- Досье -->
+      <div class="dossier-section">
+        <div class="section-title">// Краткое досье</div>
+        <div class="lore-text">
+          <p>Субъект идентифицирован как дроу неустановленного происхождения. Бывший <span class="highlight">тёмный маг и воин</span>, обстоятельства отставки неизвестны.</p>
+          <p>В настоящее время ведёт <span class="highlight">стримы</span> на платформе Twitch. Мотивация — <span class="redacted-inline">████████████████████████████</span>.</p>
+          <p>Гетерохромия глаз классифицирована как <span class="highlight">аномальная особенность</span>. Связь с прошлой деятельностью — <span class="redacted-inline">████ █████████</span>.</p>
+          <p class="redacted-block">████████████████████████████████████████████████████ ███████████████████ ████████████████████████████████████ ████████████.</p>
+        </div>
+      </div>
+
+      <div class="dossier-footer">
+        <div class="footer-note">Доступ к полному досье ограничен. Данные обновляются по мере поступления.</div>
+        <div class="footer-sig">// NRN-001 · CLASSIFIED ·  ██/██/████</div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="f-copy">© 2026 Nerien</div>
+  <div class="f-sig">✦ DROW VTUBER ✦</div>
+</footer>
+
+<script src="../JS/script.js"></script>
+</body>
+</html>

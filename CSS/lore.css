@@ -1,0 +1,302 @@
+nav .nav-links a.active { color: var(--accent); }
+nav .logo a { text-decoration: none; color: var(--accent); }
+
+.page-main {
+  position: relative;
+  z-index: 5;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 56px 48px 80px;
+}
+
+/* ===================== ДОСЬЕ ===================== */
+.dossier {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dossier-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 24px;
+  background: var(--accent-bg);
+  border-bottom: 1px solid var(--accent-border);
+  flex-wrap: wrap;
+}
+.dossier-stamp {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--accent);
+}
+.dossier-id {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--text-label);
+  font-family: 'Courier New', monospace;
+}
+.dossier-clearance {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-family: 'Courier New', monospace;
+}
+.clearance-val {
+  color: var(--accent-dim);
+}
+
+.dossier-body {
+  padding: 32px 28px;
+  background: var(--card-bg);
+}
+
+/* ТОП: фото + данные */
+.dossier-top {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.dossier-photo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dossier-photo img {
+  display: none;
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--accent-border);
+  border-radius: 2px;
+  filter: drop-shadow(0 0 12px var(--glow2));
+}
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--placeholder-border);
+  border-radius: 2px;
+  background: var(--placeholder-bg);
+  gap: 8px;
+}
+.ph-icon { font-size: 24px; color: var(--placeholder-text); }
+.ph-text {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--placeholder-text);
+  text-align: center;
+  line-height: 1.8;
+  font-family: 'Courier New', monospace;
+}
+.photo-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  text-align: center;
+  font-family: 'Courier New', monospace;
+}
+
+/* Поля данных */
+.dossier-basic { display: flex; flex-direction: column; gap: 10px; }
+.field-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.field-row:last-child { border-bottom: none; }
+.field-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-family: 'Courier New', monospace;
+}
+.field-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.partial-redact {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+.status-active { color: var(--accent) !important; }
+.threat { display: flex; gap: 5px; align-items: center; }
+.threat-pip {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+}
+.threat-pip.filled { background: var(--accent); border-color: var(--accent); }
+
+/* Разделитель */
+.dossier-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 24px 0;
+}
+
+/* Секции */
+.dossier-section { margin-bottom: 4px; }
+.section-title {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-bottom: 16px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Черты внешности */
+.traits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.trait-item {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--card-bg);
+}
+.trait-item.redacted-item { opacity: .6; }
+.trait-key {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-family: 'Courier New', monospace;
+  margin-bottom: 4px;
+}
+.trait-val { font-size: 13px; color: var(--text-primary); }
+.anomaly {
+  font-size: 10px;
+  color: #e0a030;
+  margin-left: 6px;
+}
+
+/* Способности */
+.abilities-list { display: flex; flex-direction: column; gap: 12px; }
+.ability {
+  display: grid;
+  grid-template-columns: 180px 1fr 90px;
+  align-items: center;
+  gap: 14px;
+}
+.ability.locked { opacity: .5; }
+.ability-name { font-size: 13px; color: var(--text-primary); }
+.ability-bar {
+  height: 3px;
+  background: var(--stat-track);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ability-fill {
+  height: 100%;
+  width: var(--w, 0%);
+  background: var(--stat1);
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+.locked-fill {
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border) 0px,
+    var(--border) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+.ability-note {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-family: 'Courier New', monospace;
+  text-align: right;
+}
+.ability.locked .ability-note { color: var(--accent-dim); }
+
+/* Текст досье */
+.lore-text { display: flex; flex-direction: column; gap: 12px; }
+.lore-text p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  font-family: 'Courier New', monospace;
+}
+.highlight { color: var(--text-primary); font-weight: 500; font-family: inherit; }
+.redacted-inline {
+  display: inline-block;
+  background: var(--text-primary);
+  color: transparent;
+  border-radius: 1px;
+  user-select: none;
+  font-size: 13px;
+}
+.redacted-block {
+  opacity: .18 !important;
+  user-select: none;
+  filter: blur(1.5px);
+}
+
+/* Зачёркнутый текст в полях */
+.redacted {
+  display: inline-block;
+  background: var(--text-primary);
+  color: transparent;
+  border-radius: 1px;
+  user-select: none;
+  font-size: 14px;
+}
+
+/* Футер досье */
+.dossier-footer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-note {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-family: 'Courier New', monospace;
+  letter-spacing: .5px;
+}
+.footer-sig {
+  font-size: 10px;
+  color: var(--accent-dim);
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Адаптив */
+@media (max-width: 620px) {
+  .dossier-top { grid-template-columns: 1fr; }
+  .dossier-photo { max-width: 180px; }
+  .traits-grid { grid-template-columns: 1fr; }
+  .ability { grid-template-columns: 1fr; gap: 6px; }
+  .page-main { padding: 32px 20px 60px; }
+}

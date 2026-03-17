@@ -1,0 +1,141 @@
+nav .nav-links a.active { color: var(--accent); }
+nav .logo a { text-decoration: none; color: var(--accent); }
+
+.page-main {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 48px 80px;
+}
+
+.page-header { margin-bottom: 52px; }
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: .95;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.page-title .accent { color: var(--accent); }
+.page-sub { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
+/* Секции */
+.games-sections { display: flex; flex-direction: column; gap: 48px; }
+
+.games-section {}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.section-icon { font-size: 16px; }
+.section-name {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  font-family: 'Cinzel', serif;
+}
+.section-count {
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 1px;
+  margin-left: auto;
+}
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-border), transparent);
+  opacity: .4;
+}
+
+/* Сетка карточек */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+/* Карточка игры */
+.game-card {
+  padding: 18px 16px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--card-bg);
+  transition: all .25s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--card-accent, transparent);
+  transition: opacity .25s;
+  opacity: .6;
+}
+.game-card:hover {
+  background: var(--card-hover);
+  transform: translateY(-2px);
+}
+.game-card:hover::before { opacity: 1; }
+
+/* Цвет полоски по категории */
+.game-card.played  { --card-accent: var(--accent); }
+.game-card.playing { --card-accent: #4fc3f7; }
+.game-card.planned { --card-accent: rgba(160,160,200,0.6); }
+.game-card.fav     { --card-accent: #e8a030; }
+
+.game-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.game-genre {
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: .5px;
+}
+.game-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 2px;
+}
+
+/* Бейдж */
+.game-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  width: fit-content;
+  margin-top: auto;
+}
+.badge-played  { background: var(--accent-bg);             color: var(--accent);      border: 1px solid var(--accent-border); }
+.badge-playing { background: rgba(79,195,247,0.08);        color: #4fc3f7;            border: 1px solid rgba(79,195,247,0.3); }
+.badge-planned { background: rgba(160,160,200,0.06);       color: var(--text-label);  border: 1px solid var(--border); }
+.badge-fav     { background: rgba(232,160,48,0.08);        color: #e8a030;            border: 1px solid rgba(232,160,48,0.3); }
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .games-grid { grid-template-columns: 1fr 1fr; }
+  .page-main { padding: 40px 24px 60px; }
+  .page-title { font-size: 36px; }
+}
+@media (max-width: 380px) {
+  .games-grid { grid-template-columns: 1fr; }
+}
