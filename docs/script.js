@@ -4,12 +4,11 @@
 // ============================================================
 const IS_LIVE = false;
 
-// Применяем статус ко всем индикаторам на странице
+// Применяем статус
 document.querySelectorAll('.live-dot').forEach(dot => {
   dot.classList.toggle('online', IS_LIVE);
 });
 document.querySelectorAll('.nav-live').forEach(el => {
-  // Ищем только текстовый узел (не span с точкой)
   el.childNodes.forEach(node => {
     if (node.nodeType === 3 && node.textContent.trim()) {
       node.textContent = IS_LIVE ? 'Live' : 'Offline';
@@ -18,47 +17,124 @@ document.querySelectorAll('.nav-live').forEach(el => {
 });
 
 // ============================================================
-//  Тема: загружаем сохранённую или ставим тёмную по умолчанию
+//  ЛОАДЕР С ГЛАЗАМИ
+// ============================================================
+function createLoader() {
+  const loader = document.createElement('div');
+  loader.className = 'eyes-loader';
+  loader.id = 'eyes-loader';
+  loader.innerHTML = `
+    <div class="loader-eyes">
+      <div class="loader-eye">
+        <div class="loader-pupil loader-pupil-l" id="lpl"></div>
+        <div class="loader-shine"></div>
+      </div>
+      <div class="loader-eye">
+        <div class="loader-pupil loader-pupil-r" id="lpr"></div>
+        <div class="loader-shine"></div>
+      </div>
+    </div>
+    <div class="loader-name">Нэриэн</div>
+  `;
+  document.body.prepend(loader);
+  return loader;
+}
+
+function movePupils(x, y) {
+  const pl = document.getElementById('lpl');
+  const pr = document.getElementById('lpr');
+  if (pl) pl.style.transform = `translate(${x}px, ${y}px)`;
+  if (pr) pr.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+function runLoaderAnim(callback) {
+  movePupils(0, 0);
+  setTimeout(() => movePupils(-9, 0),  300);
+  setTimeout(() => movePupils(9, 0),   900);
+  setTimeout(() => movePupils(-6, 0),  1500);
+  setTimeout(() => movePupils(0, 0),   2000);
+  setTimeout(() => movePupils(0, 4),   2400);
+  setTimeout(() => { if (callback) callback(); }, 2700);
+}
+
+// Показываем лоадер при входе на страницу
+const loader = createLoader();
+
+// Страница уже загружена — запускаем анимацию и скрываем лоадер
+runLoaderAnim(() => {
+  loader.classList.add('fade-out');
+  setTimeout(() => loader.classList.add('hidden'), 450);
+});
+
+// ============================================================
+//  ПЕРЕХОДЫ МЕЖДУ СТРАНИЦАМИ
+// ============================================================
+document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto')) return;
+  if (!href.endsWith('.html') && !href.endsWith('/')) return;
+
+  link.addEventListener('click', e => {
+    e.preventDefault();
+
+    // Создаём новый лоадер
+    const exitLoader = createLoader();
+    exitLoader.id = 'exit-loader';
+
+    const pl2 = exitLoader.querySelector('.loader-pupil-l');
+    const pr2 = exitLoader.querySelector('.loader-pupil-r');
+
+    function moveExit(x, y) {
+      if (pl2) pl2.style.transform = `translate(${x}px, ${y}px)`;
+      if (pr2) pr2.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // Короткая анимация перед уходом
+    setTimeout(() => moveExit(9, 0),  200);
+    setTimeout(() => moveExit(-9, 0), 700);
+    setTimeout(() => moveExit(0, 0),  1100);
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 1300);
+  });
+});
+
+// ============================================================
+//  Тема
 // ============================================================
 const saved = localStorage.getItem('nerian-theme') || 'dark';
 document.body.classList.add(saved);
 
-// Кнопка переключения
 const toggle = document.getElementById('theme-toggle');
-toggle.addEventListener('click', () => {
-  const isDark = document.body.classList.contains('dark');
-  document.body.classList.replace(isDark ? 'dark' : 'light', isDark ? 'light' : 'dark');
-  localStorage.setItem('nerian-theme', isDark ? 'light' : 'dark');
-  respawnParticles();
-});
+if (toggle) {
+  toggle.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark');
+    document.body.classList.replace(isDark ? 'dark' : 'light', isDark ? 'light' : 'dark');
+    localStorage.setItem('nerian-theme', isDark ? 'light' : 'dark');
+    respawnParticles();
+  });
+}
 
-// Частицы/звёзды
+// Частицы
 function respawnParticles() {
   document.querySelectorAll('.particle').forEach(p => p.remove());
   spawnParticles();
 }
-
 function spawnParticles() {
   const bg = document.querySelector('.bg-layer');
+  if (!bg) return;
   for (let i = 0; i < 80; i++) {
     const s = document.createElement('div');
     s.className = 'particle';
     const sz = Math.random() * 2.5 + 0.8;
-    s.style.cssText = `
-      width: ${sz}px;
-      height: ${sz}px;
-      top: ${Math.random() * 100}%;
-      left: ${Math.random() * 100}%;
-      --d: ${(Math.random() * 4 + 2).toFixed(1)}s;
-      animation-delay: ${(Math.random() * 4).toFixed(1)}s;
-    `;
+    s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*4+2).toFixed(1)}s;animation-delay:${(Math.random()*4).toFixed(1)}s`;
     bg.appendChild(s);
   }
 }
-
 spawnParticles();
 
-// Анимация полосок
+// Полоски характеристик
 setTimeout(() => {
   document.querySelectorAll('.stat-fill').forEach(el => {
     el.style.width = el.dataset.w + '%';
@@ -85,7 +161,6 @@ if (img) {
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileOverlay = document.getElementById('mobile-overlay');
-
 if (burger) {
   burger.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.contains('open');
@@ -100,7 +175,6 @@ if (burger) {
     mobileOverlay.classList.remove('open');
     document.body.style.overflow = '';
   });
-  // Подсвечиваем активную страницу в мобильном меню
   const current = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.mobile-menu a').forEach(a => {
     if (a.getAttribute('href') === current) a.classList.add('active');

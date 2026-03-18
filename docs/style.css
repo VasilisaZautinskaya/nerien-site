@@ -564,3 +564,136 @@ footer {
   .hero-actions { flex-direction: column; }
   .btn-p, .btn-s { text-align: center; }
 }
+
+/* Discord */
+.discord-link {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: all .2s;
+  background: var(--card-bg);
+}
+.discord-link:hover {
+  border-color: rgba(114,137,218,0.5);
+  color: #7289da;
+  background: rgba(114,137,218,0.08);
+}
+
+/* ===================== PAGE TRANSITION ===================== */
+body {
+  animation: pageIn .5s cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Плавный уход при переходе */
+body.page-exit {
+  animation: pageOut .3s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes pageOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(.98);
+  }
+}
+
+/* ===================== ЛОАДЕР С ГЛАЗАМИ ===================== */
+.eyes-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+  gap: 28px;
+  opacity: 1;
+  transition: opacity .6s ease;
+}
+/* Тёмная тема */
+body.dark .eyes-loader { background: #08080e; }
+/* Светлая тема */
+body.light .eyes-loader { background: #f0ede6; }
+
+.eyes-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+.eyes-loader.hidden { display: none; }
+
+.loader-eyes {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.loader-eye {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+body.dark .loader-eye {
+  background: #1a1a2e;
+  border: 1.5px solid rgba(221,224,240,0.1);
+}
+body.light .loader-eye {
+  background: #e0ddd6;
+  border: 1.5px solid rgba(26,26,46,0.12);
+}
+
+.loader-pupil {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+.loader-pupil-l {
+  background: radial-gradient(circle at 35% 35%, #7dd8f8, #4fc3f7);
+  box-shadow: 0 0 12px rgba(79,195,247,0.9), 0 0 24px rgba(79,195,247,0.4);
+}
+.loader-pupil-r {
+  background: radial-gradient(circle at 35% 35%, #e8ff60, #c8ff00);
+  box-shadow: 0 0 12px rgba(200,255,0,0.9), 0 0 24px rgba(200,255,0,0.4);
+}
+.loader-shine {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  pointer-events: none;
+  z-index: 2;
+}
+.loader-name {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+body.dark .loader-name { color: rgba(221,224,240,0.2); }
+body.light .loader-name { color: rgba(26,26,46,0.2); }

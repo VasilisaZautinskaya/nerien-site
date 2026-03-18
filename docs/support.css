@@ -223,3 +223,14 @@ nav .logo a { text-decoration: none; color: var(--accent); }
   border-color: rgba(100,180,255,0.35);
   color: #64b4ff;
 }
+
+.dalink-icon {
+  background: rgba(200,255,0,0.06);
+  border: 1px solid rgba(200,255,0,0.2);
+  color: var(--accent);
+}
+.card-btn.dalink-btn {
+  background: transparent;
+  border-color: rgba(200,255,0,0.3);
+  color: var(--accent);
+}
